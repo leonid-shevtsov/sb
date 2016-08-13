@@ -16,3 +16,9 @@ Also, make sure that `subl` - the built-in Sublime Text command line helper - is
 * Navigate to project
 * Run `sb`
 * If there is no project configuration in the folder, one will be created.
+
+You can run `sb` from nested folders, too - it finds parent projects similarly to `git`.
+
+* * *
+
+Made by [Leonid Shevtsov](https://leonid.shevtsov.me)
