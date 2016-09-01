@@ -16,7 +16,7 @@ def open_project(project_filename)
   system "subl '#{project_filename}'"
 end
 
-def create_project(project_root)
+def create_project(script_dir, project_root)
   project_template = File.read("#{script_dir}/project_template.json")
   project_filename = "#{project_root}/#{File.basename(project_root)}.sublime-project"
   puts "Creating Sublime Text project #{project_filename}"
@@ -38,7 +38,7 @@ end
 if path_candidates.length == 1
   print "Create ST project in #{path_candidates.first}? [y]/n: "
   if ["y", ""].include? gets.strip
-    open_project(create_project(path_candidates.first))
+    open_project(create_project(script_dir, path_candidates.first))
   else
     puts "Aborting"
   end
@@ -61,7 +61,7 @@ else
     end
   end
   if index >= 0 && index < path_candidates.length
-    open_project(create_project(path_candidates[index]))
+    open_project(create_project(script_dir, path_candidates[index]))
   else
     puts "Bad index"
   end
